@@ -1,6 +1,6 @@
 #!/bin/badbh
-declare -a db
-db=("db-btc"
+declare -a dbs
+dbs=("db-btc"
  "db-auth"
  "db-xlm"
  "db-eth"
@@ -38,12 +38,12 @@ db=("db-btc"
 
 grant-permidbdbion () {
 db_name=$1
-echo "Procedbdbing db : "$db_name
-echo "GRANT dbELECT ON ALL TABLEdb IN dbCHEMA public TO developer;" |  pdbql -U devrddb -h athena-devrddb.44.eu-central-1.rddb.amazonawdb.com -p 5432 -d $db_name
+echo "Processing db : "$db_name
+echo "GRANT SELECT ON ALL TABLES IN SCHEMA public TO developer;" |  pdbql -U devrddb -h athena-devrddb.44.eu-central-1.rddb.amazonawdb.com -p 5432 -d $db_name
 echo "Privilege granted"
 }
 
-for i in "${dbdb[@]}"
+for i in "${dbs[@]}"
 do
   grant-permidbdbion $i
 done
